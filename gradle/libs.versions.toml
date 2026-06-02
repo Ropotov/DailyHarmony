@@ -115,3 +115,12 @@ composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "k
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 room = { id = "androidx.room", version.ref = "room" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
+# Плагины определенные этим проектом
+kmp-setup = { id = "org.ropotov.kmp.setup", version = "unspecified" }
+application-setup = { id = "org.ropotov.application.setup", version = "unspecified" }
+module-setup = { id = "org.ropotov.module.setup", version = "unspecified" }
+koin-setup = { id = "org.ropotov.koin", version = "unspecified" }
+compose-setup = { id = "org.ropotov.compose", version = "unspecified" }
+coroutines-setup = { id = "org.ropotov.coroutines", version = "unspecified" }
+room-setup = { id = "org.ropotov.room", version = "unspecified" }

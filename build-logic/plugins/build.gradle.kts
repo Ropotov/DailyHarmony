@@ -26,6 +26,33 @@ tasks {
 
 gradlePlugin {
     plugins {
-
+        register("kmpSetup") {
+            id = "org.ropotov.kmp.setup"
+            implementationClass = "KMPSetupConventionPlugin"
+        }
+        register("applicationSetup") {
+            id = "org.ropotov.application.setup"
+            implementationClass = "ApplicationSetupConventionPlugin"
+        }
+        register("moduleSetup") {
+            id = "org.ropotov.module.setup"
+            implementationClass = "ModuleSetupGradlePlugin"
+        }
+        register("koin") {
+            id = "org.ropotov.koin"
+            implementationClass = "KoinConventionPlugin"
+        }
+        register("compose") {
+            id = "org.ropotov.compose"
+            implementationClass = "ComposeConventionPlugin"
+        }
+        register("coroutines") {
+            id = "org.ropotov.coroutines"
+            implementationClass = "CoroutinesConventionPlugin"
+        }
+        register("room") {
+            id = "org.ropotov.room"
+            implementationClass = "RoomConventionPlugin"
+        }
     }
 }
