@@ -13,3 +13,7 @@ fun Project.applyPlugins(vararg pluginAliases: Plugins) {
         pluginManager.apply(libs.findPlugin(alias.id).get().get().pluginId)
     }
 }
+
+fun Project.logPlugin(name: String) {
+    logger.lifecycle("Applying $name to $path")
+}
