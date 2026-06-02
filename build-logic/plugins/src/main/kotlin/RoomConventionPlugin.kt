@@ -1,5 +1,3 @@
-package org.ropotov.plugins
-
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
@@ -29,7 +27,6 @@ class RoomConventionPlugin : Plugin<Project> {
                 listOf(
                     "kspCommonMainMetadata",
                     "kspAndroid",
-                    "kspIosX64",
                     "kspIosArm64",
                     "kspIosSimulatorArm64"
                 ).forEach { configName ->

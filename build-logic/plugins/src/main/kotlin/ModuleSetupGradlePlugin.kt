@@ -1,5 +1,3 @@
-package org.ropotov.plugins
-
 import com.android.build.api.variant.KotlinMultiplatformAndroidComponentsExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project

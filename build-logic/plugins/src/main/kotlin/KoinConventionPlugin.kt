@@ -1,5 +1,3 @@
-package org.ropotov.plugins
-
 import com.google.devtools.ksp.gradle.KspAATask
 import com.google.devtools.ksp.gradle.KspExtension
 import org.gradle.api.Plugin
@@ -25,7 +23,6 @@ class KoinConventionPlugin : Plugin<Project> {
                 listOf(
                     "kspCommonMainMetadata",
                     "kspAndroid",
-                    "kspIosX64",
                     "kspIosArm64",
                     "kspIosSimulatorArm64"
                 ).forEach { configName ->

@@ -1,5 +1,3 @@
-package org.ropotov.plugins
-
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -16,7 +14,6 @@ class KMPSetupConventionPlugin : Plugin<Project> {
             Plugins.COMPOSE_COMPILER
         )
         extensions.configure<KotlinMultiplatformExtension> {
-            iosX64()
             iosArm64()
             iosSimulatorArm64()
         }

@@ -17,16 +17,9 @@ internal fun configureLibraryKotlinMultiplatform(
     extension: KotlinMultiplatformExtension
 ): KotlinMultiplatformExtension = extension.apply {
     listOf(
-        iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     )
-
-    sourceSets.apply {
-        commonMain.dependencies {
-            implementation(project.libs.findLibrary("kermit").get())
-        }
-    }
 
     compilerOptions {
         freeCompilerArgs.add("-Xexpect-actual-classes")
