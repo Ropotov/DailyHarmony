@@ -1,4 +1,4 @@
-package org.ropotov.dailyharmony
+package org.ropotov.dailyharmony.navigation
 
 import androidx.navigation3.runtime.EntryProviderScope
 

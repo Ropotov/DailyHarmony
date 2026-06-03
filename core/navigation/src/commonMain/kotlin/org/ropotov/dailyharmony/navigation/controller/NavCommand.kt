@@ -1,6 +1,6 @@
-package org.ropotov.dailyharmony.controller
+package org.ropotov.dailyharmony.navigation.controller
 
-import org.ropotov.dailyharmony.Route
+import org.ropotov.dailyharmony.navigation.Route
 
 sealed interface NavCommand {
 

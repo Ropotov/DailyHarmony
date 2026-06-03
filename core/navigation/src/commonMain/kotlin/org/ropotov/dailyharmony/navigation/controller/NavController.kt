@@ -1,7 +1,7 @@
-package org.ropotov.dailyharmony.controller
+package org.ropotov.dailyharmony.navigation.controller
 
 import androidx.compose.runtime.snapshots.SnapshotStateList
-import org.ropotov.dailyharmony.Route
+import org.ropotov.dailyharmony.navigation.Route
 
 class NavController(
     private val getCurrentBackStack: () -> SnapshotStateList<Route>

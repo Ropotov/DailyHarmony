@@ -6,6 +6,9 @@ plugins {
 
 dependencies {
     implementation(projects.shared)
+    implementation(projects.core.common)
+
+    implementation(libs.androidx.startup)
     implementation(libs.androidx.activity.compose)
     implementation(libs.compose.ui.tooling.preview)
     debugImplementation(libs.compose.ui.tooling)

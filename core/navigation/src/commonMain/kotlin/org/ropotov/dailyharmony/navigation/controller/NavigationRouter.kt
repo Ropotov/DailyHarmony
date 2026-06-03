@@ -1,8 +1,8 @@
-package org.ropotov.dailyharmony.controller
+package org.ropotov.dailyharmony.navigation.controller
 
 import kotlinx.coroutines.flow.MutableSharedFlow
 import org.koin.core.annotation.Single
-import org.ropotov.dailyharmony.Route
+import org.ropotov.dailyharmony.navigation.Route
 
 @Single
 class NavigationRouter {
