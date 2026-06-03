@@ -15,11 +15,21 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 import org.ropotov.dailyharmony.habits.model.HabitUi
+import kotlin.random.Random
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -27,38 +37,43 @@ fun HabitsScreen(
     modifier: Modifier = Modifier
 ) {
 
-    val habits: List<HabitUi> = listOf(
-        HabitUi(
-            id = "1",
-            title = "Утренняя зарядка",
-            description = "10 минут легкой разминки сразу после пробуждения",
-            progressDays = 12,
-            isDoneToday = false
-        ),
-        HabitUi(
-            id = "2",
-            title = "Чтение книги",
-            description = "Читать минимум 20 страниц перед сном",
-            progressDays = 7,
-            isDoneToday = true
-        ),
-        HabitUi(
-            id = "3",
-            title = "Пить воду",
-            description = "Выпивать не меньше 2 литров воды в день",
-            progressDays = 21,
-            isDoneToday = false
+    val habits = remember {
+        mutableStateListOf(
+            HabitUi(
+                id = "1",
+                title = "Утренняя зарядка",
+                description = "10 минут легкой разминки сразу после пробуждения",
+                progressDays = 12,
+                isDoneToday = false
+            ),
+            HabitUi(
+                id = "2",
+                title = "Чтение книги",
+                description = "Читать минимум 20 страниц перед сном",
+                progressDays = 7,
+                isDoneToday = true
+            ),
+            HabitUi(
+                id = "3",
+                title = "Пить воду",
+                description = "Выпивать не меньше 2 литров воды в день",
+                progressDays = 21,
+                isDoneToday = false
+            )
         )
-    )
+    }
 
-    val onAddHabitClick: () -> Unit = {}
     val onToggleTodayClick: (String) -> Unit = {}
+
+    var showAddSheet by rememberSaveable { mutableStateOf(false) }
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    val scope = rememberCoroutineScope()
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
         floatingActionButton = {
             ExtendedFloatingActionButton(
-                onClick = onAddHabitClick,
+                onClick = { showAddSheet = true },
                 icon = {
                     Icon(
                         imageVector = Icons.Rounded.Add,
@@ -111,6 +126,35 @@ fun HabitsScreen(
                     )
                 }
             }
+        }
+        if (showAddSheet) {
+            AddHabitBottomSheet(
+                sheetState = sheetState,
+                onDismiss = {
+                    scope.launch {
+                        sheetState.hide()
+                    }.invokeOnCompletion {
+                        showAddSheet = false
+                    }
+                },
+                onAddHabit = { title, description ->
+                    habits.add(
+                        HabitUi(
+                            id = Random.nextLong().toString(),
+                            title = title,
+                            description = description,
+                            progressDays = 0,
+                            isDoneToday = false
+                        )
+                    )
+
+                    scope.launch {
+                        sheetState.hide()
+                    }.invokeOnCompletion {
+                        showAddSheet = false
+                    }
+                }
+            )
         }
     }
 }
