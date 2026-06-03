@@ -76,6 +76,7 @@ private fun BottomBarItem(
             contentAlignment = Alignment.Center
         ) {
             Icon(
+                modifier = Modifier.size(36.dp),
                 imageVector = icon,
                 contentDescription = label,
                 tint = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.inversePrimary

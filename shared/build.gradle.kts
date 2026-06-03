@@ -25,6 +25,8 @@ kotlin {
 
             implementation(projects.core.navigation)
             implementation(projects.core.common)
+
+            implementation(projects.feature.habits)
         }
 
         androidMain.dependencies {

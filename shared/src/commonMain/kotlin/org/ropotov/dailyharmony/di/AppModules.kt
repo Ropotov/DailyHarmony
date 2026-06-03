@@ -2,6 +2,7 @@ package org.ropotov.dailyharmony.di
 
 import org.koin.core.module.Module
 import org.koin.ksp.generated.module
+import org.ropotov.dailyharmony.habits.di.HabitsFeatureModule
 import org.ropotov.dailyharmony.navigation.di.NavigationModule
 
 internal val appModules: List<Module>
@@ -13,4 +14,6 @@ private val coreModules: List<Module>
     )
 
 private val featureModules: List<Module>
-    get() = listOf()
+    get() = listOf(
+        HabitsFeatureModule().module
+    )

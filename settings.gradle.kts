@@ -19,5 +19,8 @@ dependencyResolutionManagement {
 
 include(":androidApp")
 include(":shared")
+
 include(":core:navigation")
 include(":core:common")
+
+include(":feature:habits")
