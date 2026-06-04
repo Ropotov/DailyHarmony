@@ -22,6 +22,16 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime)
+
+            implementation(projects.core.navigation)
+            implementation(projects.core.common)
+            implementation(projects.core.database)
+
+            implementation(projects.feature.habits)
+        }
+
+        androidMain.dependencies {
+            implementation(libs.androidx.startup)
         }
     }
 }
