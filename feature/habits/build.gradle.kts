@@ -12,6 +12,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(projects.core.navigation)
+            implementation(projects.core.database)
         }
     }
 }

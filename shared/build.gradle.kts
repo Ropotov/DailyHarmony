@@ -25,6 +25,7 @@ kotlin {
 
             implementation(projects.core.navigation)
             implementation(projects.core.common)
+            implementation(projects.core.database)
 
             implementation(projects.feature.habits)
         }

@@ -9,7 +9,6 @@ import org.ropotov.components.libs
 import org.ropotov.components.logPlugin
 
 class RoomConventionPlugin : Plugin<Project> {
-
     override fun apply(target: Project) = with(target) {
         if (!plugins.hasPlugin("com.google.devtools.ksp")) {
             applyPlugins(Plugins.KSP)

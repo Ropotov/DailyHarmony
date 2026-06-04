@@ -1,5 +1,5 @@
 package org.ropotov.dailyharmony.startup
 
-actual fun getStartupInitializers(): List<StartupInitializer> = listOf(
-    KoinInitializer()
+actual fun getStartupInitializers(contextWrapper: ContextWrapper): List<StartupInitializer> = listOf(
+    KoinInitializer(contextWrapper.context)
 )
